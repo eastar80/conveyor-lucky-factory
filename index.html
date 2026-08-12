@@ -4,24 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#111827">
-  <title>행운 조립 공장</title>
+  <title>LUCKY PLINKO</title>
   <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="stage.css">
+  <link rel="stylesheet" href="plinko.css">
 </head>
 <body>
   <main class="shell">
     <header>
-      <div class="brand-mark">LF</div>
-      <div><p class="eyebrow">LUCKY ASSEMBLY SYSTEM</p><h1>행운 조립 공장</h1></div>
+      <div class="brand-mark">LP</div>
+      <div><p class="eyebrow">PLINKO × PINBALL SHOW</p><h1>럭키 플링코</h1></div>
       <div class="live"><i></i> SYSTEM READY</div>
     </header>
 
     <section id="setup" class="setup-grid">
       <div class="hero-copy">
-        <span class="tag">AUTOMATED DRAW 01</span>
-        <h2>오늘의 행운을<br><em>배송합니다.</em></h2>
-        <p>이름표를 단 화물들이 회전 분배기와 로봇 팔, 마지막 행운 게이트를 통과합니다.</p>
-        <div class="route-line"><span>투입</span><b>→</b><span>혼합</span><b>→</b><span>분류</span><b>→</b><span>당첨</span></div>
+        <span class="tag">LIVE DRAW GAME 02</span>
+        <h2>행운은 어디로<br><em>튕겨갈까요?</em></h2>
+        <p>이름을 단 공들이 핀과 범퍼, 회전 장애물을 뚫고 마지막 WINNER 슬롯에 도전합니다.</p>
+        <div class="route-line"><span>DROP</span><b>↘</b><span>PLINKO</span><b>↯</b><span>CHAOS</span><b>★</b><span>WIN</span></div>
       </div>
       <form id="drawForm" class="control-card">
         <div class="card-head"><div><span>CONTROL PANEL</span><h3>추첨 설정</h3></div><div class="counter"><strong id="participantCount">5</strong><small>참가자</small></div></div>
@@ -37,23 +37,23 @@
           <div class="number-wrap"><button type="button" data-step="-1" aria-label="감소">−</button><input id="winnerCount" type="number" value="2" min="1"><button type="button" data-step="1" aria-label="증가">＋</button></div>
         </div>
         <p id="error" class="error" role="alert"></p>
-        <button id="startBtn" class="primary" type="submit"><span>공장 가동</span><b>START →</b></button>
+        <button id="startBtn" class="primary" type="submit"><span>공 떨어뜨리기</span><b>DROP →</b></button>
         <p class="fair"><span>◈</span> Web Crypto 균등 추첨 · 이름과 입력 순서 무관</p>
       </form>
     </section>
 
     <section id="factory" class="factory" hidden>
       <div class="factory-toolbar">
-        <div><span class="status-dot"></span><strong id="statusText">공장 가동 중</strong><small id="phaseText">화물 투입</small></div>
+        <div><span class="status-dot"></span><strong id="statusText">게임 준비</strong><small id="phaseText">DROP ZONE</small></div>
         <div class="progress"><i id="progressBar"></i></div>
-        <div class="stats"><span><b id="liveParticipants">0</b> 화물</span><span><b id="winnerProgress">0 / 0</b> 당첨</span></div>
+        <div class="stats"><span><b id="liveParticipants">0</b> 공</span><span><b id="winnerProgress">0 / 0</b> 당첨</span></div>
       </div>
       <div class="canvas-wrap">
-        <canvas id="factoryCanvas" width="1280" height="720" aria-label="여러 생산라인에서 참가자 화물이 움직이는 추첨 공장"></canvas>
-        <div class="stage-hud"><small id="stageNumber">STAGE 1</small><strong id="stageTitle">자동 분류</strong></div>
-        <div id="eventBanner" class="event-banner"><i></i><span>대형 분류기 가동</span></div>
-        <div class="camera-label">● LIVE CAM <b id="cameraName">OVERVIEW</b></div>
-        <div class="legend"><span><i class="cyan"></i>일반 경로</span><span><i class="gold"></i>WINNER 도크</span></div>
+        <canvas id="factoryCanvas" width="900" height="1200" aria-label="참가자 공이 핀과 움직이는 장애물에 충돌하는 플링코 보드"></canvas>
+        <div class="stage-hud"><small id="stageNumber">ZONE 1</small><strong id="stageTitle">DROP</strong></div>
+        <div id="eventBanner" class="event-banner"><i></i><span>공 투입 준비</span></div>
+        <div class="camera-label">● LIVE <b id="cameraName">BOARD CAM</b></div>
+        <div class="legend"><span><i class="cyan"></i>플링코 볼</span><span><i class="gold"></i>WINNER 슬롯</span></div>
         <div id="winnerToast" class="winner-toast" aria-live="polite"></div>
       </div>
       <div class="factory-actions">
@@ -62,9 +62,9 @@
         <button id="restartBtn" class="secondary" disabled>↻ 같은 설정으로 다시</button>
         <button id="resetBtn" class="ghost" disabled>처음부터 설정</button>
       </div>
-      <div id="resultPanel" class="result-panel" hidden><p>배송 완료</p><h2>오늘의 당첨자</h2><div id="winnerList"></div><small>당첨자는 모두 같은 자격입니다. 표시 순서는 도착 순서예요.</small></div>
+      <div id="resultPanel" class="result-panel" hidden><p>GAME COMPLETE</p><h2>오늘의 당첨자</h2><div id="winnerList"></div><small>당첨자는 모두 같은 자격입니다. 표시 순서는 슬롯 진입 순서예요.</small></div>
     </section>
   </main>
-  <script src="stage.js"></script>
+  <script src="plinko.js"></script>
 </body>
 </html>

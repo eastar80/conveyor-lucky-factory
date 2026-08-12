@@ -31,7 +31,7 @@ await send('Emulation.setDeviceMetricsOverride', { width, height, deviceScaleFac
 await send('Page.navigate', { url });
 await new Promise(resolve => setTimeout(resolve, Number(waitArg)));
 const status = await send('Runtime.evaluate', {
-  expression: `JSON.stringify({error:document.body.dataset.jsError||null,stage:document.body.dataset.testStage||null,complete:document.body.dataset.testComplete||null,title:document.querySelector('#stageTitle')?.textContent,winners:document.querySelectorAll('#winnerList span').length,setupHidden:document.querySelector('#setup')?.hidden,setupDisplay:getComputedStyle(document.querySelector('#setup')).display,factoryHidden:document.querySelector('#factory')?.hidden,factoryTop:document.querySelector('#factory')?.getBoundingClientRect().top,scrollY})`,
+  expression: `JSON.stringify({error:document.body.dataset.jsError||null,stage:document.body.dataset.testStage||null,complete:document.body.dataset.testComplete||null,title:document.querySelector('#stageTitle')?.textContent,winners:document.querySelectorAll('#winnerList span').length,collisionCount:Number(document.body.dataset.collisions||0),winnerCount:Number(document.body.dataset.winners||0),setupHidden:document.querySelector('#setup')?.hidden,setupDisplay:getComputedStyle(document.querySelector('#setup')).display,factoryHidden:document.querySelector('#factory')?.hidden,factoryTop:document.querySelector('#factory')?.getBoundingClientRect().top,scrollY})`,
   returnByValue: true
 });
 const shot = await send('Page.captureScreenshot', { format: 'png', captureBeyondViewport: false });

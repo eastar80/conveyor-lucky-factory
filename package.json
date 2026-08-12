@@ -4,6 +4,6 @@
   "private": true,
   "scripts": {
     "dev": "npx serve .",
-    "check": "node --check stage.js"
+    "check": "node --check plinko.js"
   }
 }
