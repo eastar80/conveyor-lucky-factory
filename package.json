@@ -1,0 +1,9 @@
+{
+  "name": "conveyor-lucky-factory",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "npx serve .",
+    "check": "node --check app.js"
+  }
+}
