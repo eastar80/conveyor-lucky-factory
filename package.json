@@ -4,6 +4,6 @@
   "private": true,
   "scripts": {
     "dev": "npx serve .",
-    "check": "node --check app.js"
+    "check": "node --check stage.js"
   }
 }

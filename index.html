@@ -6,6 +6,7 @@
   <meta name="theme-color" content="#111827">
   <title>행운 조립 공장</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="stage.css">
 </head>
 <body>
   <main class="shell">
@@ -48,18 +49,22 @@
         <div class="stats"><span><b id="liveParticipants">0</b> 화물</span><span><b id="winnerProgress">0 / 0</b> 당첨</span></div>
       </div>
       <div class="canvas-wrap">
-        <canvas id="factoryCanvas" width="1280" height="720" aria-label="참가자 화물이 움직이는 추첨 공장"></canvas>
+        <canvas id="factoryCanvas" width="1280" height="720" aria-label="여러 생산라인에서 참가자 화물이 움직이는 추첨 공장"></canvas>
+        <div class="stage-hud"><small id="stageNumber">STAGE 1</small><strong id="stageTitle">자동 분류</strong></div>
+        <div id="eventBanner" class="event-banner"><i></i><span>대형 분류기 가동</span></div>
+        <div class="camera-label">● LIVE CAM <b id="cameraName">OVERVIEW</b></div>
         <div class="legend"><span><i class="cyan"></i>일반 경로</span><span><i class="gold"></i>WINNER 도크</span></div>
         <div id="winnerToast" class="winner-toast" aria-live="polite"></div>
       </div>
       <div class="factory-actions">
         <button id="pauseBtn" class="secondary">Ⅱ 일시정지</button>
+        <button id="soundBtn" class="secondary" aria-pressed="true">♬ 사운드 ON</button>
         <button id="restartBtn" class="secondary" disabled>↻ 같은 설정으로 다시</button>
         <button id="resetBtn" class="ghost" disabled>처음부터 설정</button>
       </div>
       <div id="resultPanel" class="result-panel" hidden><p>배송 완료</p><h2>오늘의 당첨자</h2><div id="winnerList"></div><small>당첨자는 모두 같은 자격입니다. 표시 순서는 도착 순서예요.</small></div>
     </section>
   </main>
-  <script src="app.js"></script>
+  <script src="stage.js"></script>
 </body>
 </html>
